@@ -11,7 +11,7 @@ def arg_parse():
     return parser.parse_args()
 
 
-def var_define():
+def setting_vars():
     try:
         setting = {
             "author": input("Enter author name: "),
@@ -34,7 +34,7 @@ def setting_readme(setting):
 
 
 def main():
-    setting = var_define()
+    setting = setting_vars()
     setting_readme(setting)
     args = arg_parse()
     setup_content = """
@@ -70,8 +70,6 @@ setuptools.setup(
     try:
         os.mkdir(setting["project_name"])
         open(setting["project_name"] + "/__init__.py", "w").write("")
-        open(setting["project_name"] + "/" +
-             setting["project_name"]+".py", "w").write("")
         open("setup.py", "w").write(setup_content)
 
     except FileExistsError:
