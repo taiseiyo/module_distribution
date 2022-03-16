@@ -1,8 +1,6 @@
-#!/usr/bin/env python
-
-def hello_world():
-    print("hello world")
+def main():
+    print("congratulations!")
 
 
 if __name__ == "__main__":
-    hello_world()
+    main()

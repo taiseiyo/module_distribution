@@ -11,11 +11,7 @@ def arg_parse():
     return parser.parse_args()
 
 
-def beginning_preparation():
-    if(not os.path.exists(os.getcwd() + "/README.md")):
-        f = open("README.md", "w")
-        f.write("")
-
+def var_define():
     try:
         setting = {
             "author": input("Enter author name: "),
@@ -30,18 +26,26 @@ def beginning_preparation():
         sys.exit()
 
 
+def setting_readme(setting):
+    if(not os.path.exists(os.getcwd() + "/README.md")):
+        f = open("README.md", "w")
+        f.write(
+            f"#install\n`pip install git+https://github.com/{setting['author']}/{setting['project_name']}`")
+
+
 def main():
-    setting = beginning_preparation()
+    setting = var_define()
+    setting_readme(setting)
     args = arg_parse()
     setup_content = """
 import setuptools
 
 with open("README.md", "r") as fh:
-long_description = fh.read()
+    long_description = fh.read()
 
 setuptools.setup(
     name="module_distribution",
-    """ + f"\tversion = {setting['version']},\n" \
+    """ + f"version = {setting['version']},\n" \
         + f"\tauthor = {setting['author']},\n" \
         + f"\tauthor_email = {setting['email']},\n" \
         + f"\tdescription = {setting['description']},\n" \
@@ -56,7 +60,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires = '>=3.8',)
-""" + f"\n# pip install git+https://github.com/{setting['author']}/{setting['project_name']}"
+"""
 
     if(args.command):
         setup_content = setup_content[0:-1] + \
@@ -72,8 +76,6 @@ setuptools.setup(
 
     except FileExistsError:
         print("already file or directory exist. enjoy!")
-
-    print(setup_content)
 
 
 main()
