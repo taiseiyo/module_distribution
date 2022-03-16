@@ -55,7 +55,8 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires = '>=3.8',)"""
+    python_requires = '>=3.8',)
+""" + f"\n# pip install git+https://github.com/{setting['author']}/{setting['project_name']}"
 
     if(args.command):
         setup_content = setup_content[0:-1] + \
