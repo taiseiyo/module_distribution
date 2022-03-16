@@ -12,6 +12,7 @@ def arg_parse():
 
 
 def setting_vars():
+    explanatory_text = ""
     try:
         setting = {
             "author": input("Enter author name: "),
@@ -20,7 +21,10 @@ def setting_vars():
             "version": input("Enter program version: "),
             "description": input("Enter a brief description: ")
         }
-        return setting
+        for key, var in setting.items():
+            explanatory_text = explanatory_text + \
+                f"{key} = '{var}', \n{4 * ' '}"
+        return explanatory_text, setting
 
     except:
         sys.exit()
@@ -34,7 +38,7 @@ def setting_readme(setting):
 
 
 def main():
-    setting = setting_vars()
+    explanatory_text, setting = setting_vars()
     setting_readme(setting)
     args = arg_parse()
     setup_content = """
@@ -45,12 +49,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="module_distribution",
-    """ + f"version = '{setting['version']}',\n" \
-        + f"\tauthor = '{setting['author']}',\n" \
-        + f"\tauthor_email = '{setting['email']}',\n" \
-        + f"\tdescription = '{setting['description']}',\n" \
-        + f"\tlong_description = '{setting['description']}',\n"\
-        + """
+    """ + explanatory_text + """
     long_description_content_type = "text/markdown",
     url = "https://github.com/",
     packages = setuptools.find_packages(),
