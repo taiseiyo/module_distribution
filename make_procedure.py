@@ -48,7 +48,7 @@ setuptools.setup(
         + f"\tlong_description = {setting['description']},\n"\
         + """
     long_description_content_type = "text/markdown",
-    url = "",
+    url = "https://github.com/",
     packages = setuptools.find_packages(),
     classifiers = [
         "Programming Language :: Python :: 3",
