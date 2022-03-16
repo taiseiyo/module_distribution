@@ -30,7 +30,7 @@ def setting_readme(setting):
     if(not os.path.exists(os.getcwd() + "/README.md")):
         f = open("README.md", "w")
         f.write(
-            f"#install\n`pip install git+https://github.com/{setting['author']}/{setting['project_name']}`")
+            f"# install\n`pip install git+https://github.com/{setting['author']}/{setting['project_name']}`")
 
 
 def main():
