@@ -30,7 +30,7 @@ def setting_readme(setting):
     if(not os.path.exists(os.getcwd() + "/README.md")):
         f = open("README.md", "w")
         f.write(
-            f"# install\n`pip install git+https://github.com/{setting['author']}/{setting['project_name']}`")
+            f"# install\n`pip install git+https://github.com/{setting['author']}/repository_name`")
 
 
 def main():
@@ -45,11 +45,11 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="module_distribution",
-    """ + f"version = {setting['version']},\n" \
-        + f"\tauthor = {setting['author']},\n" \
-        + f"\tauthor_email = {setting['email']},\n" \
-        + f"\tdescription = {setting['description']},\n" \
-        + f"\tlong_description = {setting['description']},\n"\
+    """ + f"version = '{setting['version']}',\n" \
+        + f"\tauthor = '{setting['author']}',\n" \
+        + f"\tauthor_email = '{setting['email']}',\n" \
+        + f"\tdescription = '{setting['description']}',\n" \
+        + f"\tlong_description = '{setting['description']}',\n"\
         + """
     long_description_content_type = "text/markdown",
     url = "https://github.com/",

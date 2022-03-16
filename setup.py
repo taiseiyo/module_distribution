@@ -6,11 +6,11 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="module_distribution",
-    version=0.0.1,
-    author=taiseiyo,
-    author_email=taiseiyo11@gmail.com,
-    description=sample test,
-    long_description=sample test,
+    version='0.0.1',
+    author='taiseiyo',
+    author_email='taiseiyo11@gmail.com',
+    description='test sample',
+    long_description='test sample',
 
     long_description_content_type="text/markdown",
     url="https://github.com/",
