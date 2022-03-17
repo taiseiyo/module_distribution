@@ -1,5 +1,5 @@
 
-* pygit_module
+* pygh_module
 
 ** Description
 Automatic file generation program required to *publish a module created with python with GitHub*
