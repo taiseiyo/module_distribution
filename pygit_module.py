@@ -34,7 +34,7 @@ def setting_readme(setting):
     if(not os.path.exists(os.getcwd() + "/README.md")):
         f = open("README.md", "w")
         f.write(
-            f"# install\n`pip install git+https://github.com/{setting['author']}/repository_name`")
+            f"# install\n`pip install git+https://github.com/{setting['author']}/" + os.path.basename(os.getcwd())+"`")
 
 
 def main():
@@ -51,7 +51,7 @@ setuptools.setup(
     name="module_distribution",
     """ + explanatory_text + """
     long_description_content_type = "text/markdown",
-    url = "https://github.com/",
+    url = "https://github.com/"""+setting["author"]+"/"+setting["project_name"] + """",
     packages = setuptools.find_packages(),
     classifiers = [
         "Programming Language :: Python :: 3",
@@ -63,7 +63,7 @@ setuptools.setup(
 
     if(args.command):
         setup_content = setup_content[0:-1] + \
-            "\n\tentry_points = {\n" + \
+            "\n    entry_points = {\n" + \
             f"\tconsole_scripts': ['{setting['project_name']} = {setting['project_name']}.{setting['project_name']}:main']" + "})"
 
     try:
