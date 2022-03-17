@@ -20,7 +20,7 @@ Automatic file generation program required to *publish a module created with pyt
 2. Install with the following command
    
 #+begin_src bash
-pip install git+https://github.com/taiseiyo/pygit_module
+pip install git+https://github.com/user-name/module-name
 #+end_src
 
 ** Caution
