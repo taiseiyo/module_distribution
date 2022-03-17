@@ -12,7 +12,6 @@ def arg_parse():
 
 
 def setting_vars():
-    explanatory_text = ""
     try:
         setting = {
             "author": input("Enter author name: "),
@@ -21,6 +20,7 @@ def setting_vars():
             "version": input("Enter program version: "),
             "description": input("Enter a brief description: ")
         }
+        explanatory_text = f"\n{4 * ' '}name = '{setting['project_name']}', \n{4 * ' '}"
         for key, var in setting.items():
             explanatory_text = explanatory_text + \
                 f"{key} = '{var}', \n{4 * ' '}"
@@ -47,9 +47,7 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-setuptools.setup(
-    name="module_distribution",
-    """ + explanatory_text + """
+setuptools.setup(""" + explanatory_text + """
     long_description_content_type = "text/markdown",
     url = "https://github.com/"""+setting["author"]+"/"+setting["project_name"] + """",
     packages = setuptools.find_packages(),
